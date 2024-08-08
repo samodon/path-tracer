@@ -6,7 +6,7 @@ CXXFLAGS = $(CXXFLAGS_DEBUG)
 LDFLAGS = 
 
 # Define the executable name
-EXE_NAME = inOneWeekend
+EXE_NAME =pathtrace
 IMAGE_FILE = image.ppm
 
 # Source files
