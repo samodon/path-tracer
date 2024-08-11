@@ -1,5 +1,6 @@
 #ifndef OBJECT_LIST_H
 #define OBJECT_LIST_H
+#include "aabb.h"
 #include "interval.h"
 #include "object.h"
 // #include "sphere.h"
@@ -17,7 +18,10 @@ public:
 
   object_list(shared_ptr<object> object) { add(object); }
 
-  inline void add(shared_ptr<object> object) { objects.push_back(object); }
+  inline void add(shared_ptr<object> object) {
+    objects.push_back(object);
+    bbox = aabb(bbox, object->bounding_box());
+  }
 
   inline bool hit(const ray &r, interval ray_t,
                   hit_record &rec) const override {
@@ -35,6 +39,11 @@ public:
 
     return hit_anything;
   }
+
+  aabb bounding_box() const override { return bbox; }
+
+private:
+  aabb bbox;
 };
 
 #endif

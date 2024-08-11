@@ -1,6 +1,6 @@
 # Define the build configuration
 BUILD_TYPE ?= Debug
-CXXFLAGS_DEBUG = -g -O0 -std=c++11
+CXXFLAGS_DEBUG = -g -O0 -v -std=c++11
 CXXFLAGS_RELEASE = -O3 -std=c++11
 CXXFLAGS = $(CXXFLAGS_DEBUG)
 LDFLAGS = 

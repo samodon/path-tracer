@@ -9,3 +9,8 @@ double interval::clamp(double x) const {
     return max;
   return x;
 }
+
+interval interval::expand(double delta) const {
+  auto padding = delta / 2;
+  return interval(min - padding, max + padding);
+}
